@@ -110,8 +110,7 @@ public class AcercaDe extends JFrame implements ActionListener {
         botonSalir.setVisible(true);
         botonSalir.addActionListener(this);  
     	
-    	icoMensajePre = new ImageIcon("Imagenes\\IconoPregunta.jpg");
-    	this.mostrarIp();
+    	icoMensajePre = new ImageIcon("Imagenes\\IconoPregunta.jpg"); 
     	repaint();		
     }
     
@@ -130,18 +129,5 @@ public class AcercaDe extends JFrame implements ActionListener {
     
     } 
     	
-	 public void mostrarIp()
-	    {
-	   
-	    try
-	    {
-		   InetAddress direccionIp = InetAddress.getLocalHost(); 
-		    
-		   JOptionPane.showMessageDialog(null,"IP del pc: "+direccionIp.getHostAddress().toString() + "\n" + "Con mascara: " + direccionIp.getHostName()); 
-		
-		} catch (Exception e) {
-		   
-		    e.printStackTrace();
-		}
-    } 
+	  
 }

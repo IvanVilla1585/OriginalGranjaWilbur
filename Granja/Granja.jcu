@@ -72,16 +72,16 @@
 			<path>src\formularios\GestionarAnimal.java</path>
 			<source>true</source>
 			<index>2</index>
+			<active>true</active>
+		</docitem>
+		<docitem>
+			<path>src\Utilidades\DepartamentosMunicipios.java</path>
+			<source>true</source>
+			<index>3</index>
 			<active>false</active>
 		</docitem>
 		<docitem>
 			<path>src\formularios\Granja.java</path>
-			<source>true</source>
-			<index>3</index>
-			<active>true</active>
-		</docitem>
-		<docitem>
-			<path>src\formularios\Login.java</path>
 			<source>true</source>
 			<index>4</index>
 			<active>false</active>
@@ -117,7 +117,7 @@
 			<active>false</active>
 		</docitem>
 		<docitem>
-			<path>src\Utilidades\DepartamentosMunicipios.java</path>
+			<path>src\formularios\Login.java</path>
 			<source>true</source>
 			<index>10</index>
 			<active>false</active>

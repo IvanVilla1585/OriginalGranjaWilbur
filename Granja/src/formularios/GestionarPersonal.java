@@ -30,7 +30,7 @@ import logica.DatosPersonal;
 //************************************* CLASE PARA CREAR EL FORMULARIO *********************************************************************//
 
 
-public class GestionarPersonal extends JFrame implements ActionListener, KeyListener,MouseListener,PropertyChangeListener {
+public class GestionarPersonal extends JFrame implements ActionListener, KeyListener,MouseListener,PropertyChangeListener{
 	
 	
 //************************************** DECLARACION DE LOS OBJETOS A UTILIZAR EN EL FORMULARIO ********************************************//
@@ -155,11 +155,12 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
         labelDepar.setVisible(true);
         
         vecDep = depaMuni.cargarDepartamentos();
-        ComboDepar = new JComboBox(vecDep); 
+        ComboDepar = new JComboBox(vecDep);
+        ComboDepar.addItem("......"); 
         ComboDepar.setBounds(135,105, 120, 25); 
         panelDatosPerso.add(ComboDepar);
         ComboDepar.setVisible(true);
-        ComboDepar.addKeyListener(this);
+        ComboDepar.addActionListener(this);
         
         labelMuni = new JLabel("*Municipio:");
         labelMuni.setBounds(275, 105, 150, 25); 
@@ -684,6 +685,23 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
     	if (event.getSource()==botonListar){
         
 	       ListarPersonal lp= new ListarPersonal(listaPer.getCabeza());	
+	    }
+	    
+	    if (event.getSource() == ComboDepar ){
+	    	
+	    	comboMuni.removeAllItems();
+	    	vecMuni = depaMuni.cargarMunicipios(ComboDepar.getSelectedIndex());
+	    	for (int j = 0; j < 125; j++){
+				
+				if (vecMuni[j] == null){
+					
+					break;
+				}else{
+					
+					comboMuni.addItem(vecMuni[j]);
+				} 
+			}
+	    	
 	    } 	 
 	}
       
@@ -834,6 +852,20 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
 		        } 
 		 
     }
+    
+ /*   public void itemStateChanged(ItemEvent evento){
+		
+		if (evento.getStateChange()== ItemEvent.SELECTED ){
+			int indi =  ComboDepar.getSelectedIndex(); 		
+			String [] muni = new String [125];
+			for (int j = 1; j < 126; j++){
+				
+				comboMuni.addItem(depaMuni.departamentos[indi][j]);
+			} 
+	
+		}
+
+	} */
 	
 	
 //**************************************** METODOS PARA EL CRUD *****************************************************************************//
@@ -1040,8 +1072,7 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
    		comboTipoDoc.setSelectedItem(null);
 		textNumDoc.setText("");
 		textNombre.setText("");
-		dateFechaNaci.setDate(null);
-		ComboDepar.setSelectedItem(null);
+		dateFechaNaci.setDate(null); 
 		comboMuni.setSelectedItem(null);
 		comboTipoSangre.setSelectedItem(null);
 		comboRh.setSelectedItem(null); 
@@ -1151,7 +1182,7 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
             }
         });
         
-        ComboDepar.addItemListener(new ItemListener(){ 
+    /*    ComboDepar.addItemListener(new ItemListener(){ 
 	   		public void itemStateChanged(ItemEvent evento){
 		
 				if (evento.getStateChange()== ItemEvent.SELECTED ){

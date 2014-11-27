@@ -1,5 +1,6 @@
 package Utilidades;
 
+import javax.swing.JComboBox;
 
 public class DepartamentosMunicipios {
 	
@@ -1198,6 +1199,11 @@ public class DepartamentosMunicipios {
         departamentos[32][4] = "Cumaribo";
 	}
 	
+	public String [][] getDeparMuni(){
+		
+		return departamentos;
+	} 
+	
 	public String [] cargarDepartamentos(){
 		
 		String [] depa = new String [33];
@@ -1211,12 +1217,20 @@ public class DepartamentosMunicipios {
 	
 	public String [] cargarMunicipios(int indice){
 		
-		String [] muni = new String [125];
-		for (int j = 1; j < muni.length; j++){
-			
-			muni [j-1] = departamentos[indice][j];
+		String [] muni = new String [125]; 
+		if ((indice)>=0){
+		 
+			for (int j = 1; j < 125; j++){
+				
+				if (departamentos[indice][j] == null){
+					
+					break;
+				}else{
+					
+					muni[j-1] = departamentos[indice][j];
+				} 
+			}
 		}
-		
 		return muni;
 	}
 }

@@ -79,7 +79,7 @@ public class Granja {
     	listaPerfil.guardarPerfil(perfil1);
     //	ivan i= new ivan();
    // 	RecuperarClave i=new RecuperarClave();
-	//	Login i=new Login(listaAnimal,listaPartos,listaPerfil,listaPersonal);
+		Login i=new Login(listaAnimal,listaPartos,listaPerfil,listaPersonal);
 	//	MenuAdministrador Ma = new MenuAdministrador();
 	//	MenuEmpleado ME=new MenuEmpleado(); 
 	//	ModificarContraseña MC=new ModificarContraseña(listaPerfil,listaPersonal);   
@@ -102,7 +102,7 @@ public class Granja {
 	//	TrazabilidadAnimal TA=new TrazabilidadAnimal();
 	//	Catalogo C=new Catalogo(); 
  	//	GestionarAnimal Gani=new GestionarAnimal(listaAnimal,listaPartos);
-		AcercaDe Ad=new AcercaDe();
+	//	AcercaDe Ad=new AcercaDe();
 	//	Menu_Principal MeP= new Menu_Principal();
 
     }
