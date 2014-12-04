@@ -135,11 +135,12 @@ public class Validaciones {
 		return diferencia;
 	}
 	
-	public boolean validaFecha(JDateChooser fecha){ 
-		
-		if (fecha.getDate().after(new Date())){	
-			return true;
-		}	
+	public boolean validaFecha(JDateChooser fecha){  
+			
+			
+			if (fecha.getDate().after(new Date())){	
+				return true;
+			} 	
 		return  false;	
 	}
 	

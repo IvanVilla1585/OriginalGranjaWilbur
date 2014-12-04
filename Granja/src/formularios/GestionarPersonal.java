@@ -8,14 +8,9 @@ import java.awt.*;
 import javax.swing.border.TitledBorder;
 import Utilidades.*;
 import java.awt.event.KeyEvent; 
-import java.awt.event.FocusListener;
-import java.util.ArrayList;
-import java.util.List;
+import java.awt.event.FocusListener; 
 import java.awt.image.BufferedImage;//guarda imagenes contenidas
-import javax.imageio.ImageIO;//entrada y salida de archivos de formato imágen
-import java.awt.Component;
-import java.awt.Graphics;//cargan la foto y jaga.awt controla las acciones de los objetos tipo imágen
-import java.awt.Insets;
+import javax.imageio.ImageIO;//entrada y salida de archivos de formato imágen 
 import javax.swing.border.Border;//borde de donde va a estar contenida la imagen
 import java.awt.Desktop;
 import javax.swing.table.*;
@@ -146,17 +141,17 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
 		dateFechaNaci = new JDateChooser();
 		dateFechaNaci.setIcon(icoCalendario);
 		dateFechaNaci.setBounds( 520, 65, 120, 25 );
-		panelDatosPerso.add(dateFechaNaci); 
-		dateFechaNaci.getDateEditor().addPropertyChangeListener(this); 
+		panelDatosPerso.add(dateFechaNaci);  
+		dateFechaNaci.getDateEditor().getUiComponent().addMouseListener(this); 
         
         labelDepar = new JLabel("*Departamento:");
         labelDepar.setBounds(10, 105, 150, 25); 
         panelDatosPerso.add(labelDepar);
         labelDepar.setVisible(true);
         
+        vecDep = new String [34];
         vecDep = depaMuni.cargarDepartamentos();
-        ComboDepar = new JComboBox(vecDep);
-        ComboDepar.addItem("......"); 
+        ComboDepar = new JComboBox(vecDep); 
         ComboDepar.setBounds(135,105, 120, 25); 
         panelDatosPerso.add(ComboDepar);
         ComboDepar.setVisible(true);
@@ -331,8 +326,7 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
 		dateFechaTitulo = new JDateChooser();
 		dateFechaTitulo.setBounds( 645, 25, 120, 25 );
 		dateFechaTitulo.setIcon(icoCalendario);
-		panelFormacion.add(dateFechaTitulo);
-		dateFechaTitulo.addKeyListener(this);
+		panelFormacion.add(dateFechaTitulo); 
 		dateFechaTitulo.getDateEditor().getUiComponent().addMouseListener(this);
         
         JPanel panelOtrosEstu = new JPanel();
@@ -423,8 +417,7 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
 		dateFechaContra = new JDateChooser();
 		dateFechaContra.setIcon(icoCalendario);
 		dateFechaContra.setBounds( 645, 25, 120, 25 );
-		panelDatosLaborales.add(dateFechaContra);
-		dateFechaContra.addKeyListener(this);
+		panelDatosLaborales.add(dateFechaContra); 
 		dateFechaContra.getDateEditor().getUiComponent().addMouseListener(this);
         
         labelTipoContra = new JLabel("*Tipo de Contrato:");
@@ -702,7 +695,8 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
 				} 
 			}
 	    	
-	    } 	 
+	    }
+	     	 
 	}
       
 //********************************************* METODOS PARA VALIDAR CUADROS DE TEXTO ***************************************************//
@@ -754,7 +748,7 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
 	
 	public void mouseClicked(MouseEvent e) { 
 		
-	/*	if (e.getSource() ==dateFechaNaci && dateFechaNaci.getDate().toString().equals("")){
+		if (e.getSource() == dateFechaNaci && dateFechaNaci.getDate() == null){ 
 			
 			JOptionPane.showMessageDialog(null,"Seleccione una fecha","Gestionar Personal - S.G.P",
 										 JOptionPane.OK_OPTION,icoMensajeInfor);  
@@ -770,7 +764,7 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
 			}
 		}
 		
-		if (e.getSource() ==dateFechaTitulo && dateFechaTitulo.getDate().toString().equals("")){
+	/*	if (e.getSource() ==dateFechaTitulo && dateFechaTitulo.getDate().toString().equals("")){
 			
 			JOptionPane.showMessageDialog(null,"Seleccione una fecha","Gestionar Personal - S.G.P",
 										 JOptionPane.OK_OPTION,icoMensajeInfor);  
@@ -833,8 +827,8 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
     
     public void propertyChange(PropertyChangeEvent evt){ 
 		    	
-		        if ( evt.getPropertyName().equals("date")) {
-		            if (dateFechaNaci.getDate() == null){
+		/*        if ( evt.getSource() == dateFechaNaci && evt.getPropertyName().equals("date")) {
+		           if (dateFechaNaci.getDate() == null){
 			
 						JOptionPane.showMessageDialog(null,"Seleccione una fecha","Gestionar Personal - S.G.P",
 													 JOptionPane.OK_OPTION,icoMensajeInfor);  
@@ -849,7 +843,7 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
 							ComboDepar.requestFocus();
 						}
 					}
-		        } 
+		        } */
 		 
     }
     
@@ -1196,37 +1190,9 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
 				}
 		
 			} 
-		}); 
+		}); */
         
-   /* 	dateFechaNaci.addPropertyChangeListener(new PropertyChangeListener() {
- 
-		    public void propertyChange(PropertyChangeEvent evt) {
-		    	if (evt.getSource()  == dateFechaNaci && dateFechaNaci.getDate() == null){
-		    		JOptionPane.showMessageDialog(null,"Seleccione una fecha","Datos Animal - S.G.P",
-										  JOptionPane.OK_OPTION,icoMensajeInfor); 
-		    		
-		    	}else{
-		    	
-		        if (evt.getPropertyName().equals("date")) {
-		           /* if (dateFechaNaci.getDate() == null){
-			
-						JOptionPane.showMessageDialog(null,"Seleccione una fecha","Gestionar Personal - S.G.P",
-													 JOptionPane.OK_OPTION,icoMensajeInfor);  
-						dateFechaNaci.requestFocus();
-					}else{*/
-	/*					if(v.validaFecha(dateFechaNaci)==true){
-							
-							JOptionPane.showMessageDialog(null,"Fecha mayor a la actual","Gestionar Personal - S.G.P",
-													 JOptionPane.OK_OPTION,icoMensajeInfor); 
-							dateFechaNaci.requestFocus();
-						}else{
-							ComboDepar.requestFocus();
-						}
-					//}
-		        }
-		        }
-		    }
-		});
+    	
 		
 /*		dateFechaTitulo.addPropertyChangeListener(new PropertyChangeListener() {
  

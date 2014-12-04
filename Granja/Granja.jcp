@@ -83,6 +83,14 @@
 				<folder>src\Utilidades</folder>
 			</fileitem>
 			<fileitem>
+				<path>src\Utilidades\ReportePerfiles.java</path>
+				<folder>src\Utilidades</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\Utilidades\ReportesPerfil.java</path>
+				<folder>src\Utilidades</folder>
+			</fileitem>
+			<fileitem>
 				<path>src\Utilidades\Validaciones.java</path>
 				<folder>src\Utilidades</folder>
 			</fileitem>
@@ -199,7 +207,67 @@
 				<folder>src\formularios</folder>
 			</fileitem>
 			<fileitem>
+				<path>src\librerias\commons-beanutils-1.8.0.jar</path>
+				<folder>src\librerias</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\librerias\commons-collections-2.1.1.jar</path>
+				<folder>src\librerias</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\librerias\commons-collections-3.2.1.jar</path>
+				<folder>src\librerias</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\librerias\commons-digester-1.7.jar</path>
+				<folder>src\librerias</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\librerias\commons-javaflow-20060411.jar</path>
+				<folder>src\librerias</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\librerias\commons-logging-1.0.4.jar</path>
+				<folder>src\librerias</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\librerias\commons-logging-1.1.jar</path>
+				<folder>src\librerias</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\librerias\groovy-all-1.5.5.jar</path>
+				<folder>src\librerias</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\librerias\groovy-all-1.7.5.jar</path>
+				<folder>src\librerias</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\librerias\iText-2.1.0.jar</path>
+				<folder>src\librerias</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\librerias\iText.jar</path>
+				<folder>src\librerias</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\librerias\jasperreports-3.7.0.jar</path>
+				<folder>src\librerias</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\librerias\jasperreports-4.0.1.jar</path>
+				<folder>src\librerias</folder>
+			</fileitem>
+			<fileitem>
 				<path>src\librerias\jcalendar-1.4.jar</path>
+				<folder>src\librerias</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\librerias\jcommon-1.0.20.jar</path>
+				<folder>src\librerias</folder>
+			</fileitem>
+			<fileitem>
+				<path>src\librerias\jfreechart-1.0.16.jar</path>
 				<folder>src\librerias</folder>
 			</fileitem>
 			<fileitem>

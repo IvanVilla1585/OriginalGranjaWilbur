@@ -1206,10 +1206,11 @@ public class DepartamentosMunicipios {
 	
 	public String [] cargarDepartamentos(){
 		
-		String [] depa = new String [33];
-		for (int j = 0; j < depa.length; j++){
+		String [] depa = new String [34];
+		depa [0] = "........";
+		for (int j = 0 ; j < 33; j++){
 			
-			depa [j] = departamentos[j][0];
+			depa [j+1] = departamentos[j][0];
 		}
 		
 		return depa;
@@ -1218,16 +1219,16 @@ public class DepartamentosMunicipios {
 	public String [] cargarMunicipios(int indice){
 		
 		String [] muni = new String [125]; 
-		if ((indice)>=0){
+		if ((indice)>0){
 		 
 			for (int j = 1; j < 125; j++){
 				
-				if (departamentos[indice][j] == null){
+				if (departamentos[indice-1][j] == null){
 					
 					break;
 				}else{
 					
-					muni[j-1] = departamentos[indice][j];
+					muni[j-1] = departamentos[indice-1][j];
 				} 
 			}
 		}

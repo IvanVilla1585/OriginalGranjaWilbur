@@ -4,7 +4,10 @@ import nodos.*;
 import logica.*;
 import org.jvnet.substance.SubstanceLookAndFeel;
 import javax.swing.JFrame;
-import java.io.*; 
+import java.util.Date;
+import java.io.*;
+import java.text.*;
+import Utilidades.ReportePerfiles; 
  
 public class Granja {
 	
@@ -12,24 +15,23 @@ public class Granja {
 	public static ListaPartos listaPartos;
 	public static ListaPerfil listaPerfil;
 	public static ListaPersonal listaPersonal;
-
+	public static DateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
+    public static String fechaNaci = "15/01/1985",fechaTitu = "26/06/2010",fechaTermi = "20/10/2013",fechaContra = "04/02/2013";
     
     public static void main(String[] args) {
     	
     /*	JFrame.setDefaultLookAndFeelDecorated(true); //que nos permite dejar a Substance la decoracion ( por asi decirlo) 
-		SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.BusinessBlackSteelSkin");*/
- 
+		SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.BusinessBlackSteelSkin");*/ 
     	
     	listaAnimal = new ListaAnimales();
 		listaPartos = new ListaPartos();
 		listaPerfil = new ListaPerfil();
 		listaPersonal= new ListaPersonal();
    	
-    	DatosPersonal persona = new DatosPersonal();
+    /*	DatosPersonal persona = new DatosPersonal();
     	persona.setTipoDoc("CC");
     	persona.setNumeroDocumento("8359459");
     	persona.setNombre("IVAN DARIO VILLA RAMIREZ");
-    	//persona.setFechaNacimiento(15/01/1985);
     	persona.setDepartamento("ANTIOQUIA");
     	persona.setMunicipio("MEDELLIN");
     	persona.setTipoSangre("B");
@@ -41,14 +43,23 @@ public class Granja {
     	persona.setCorreo("trezeguet55@gmail.com");
     	persona.setTelMovil("3213658421");
     	persona.setProfesion("VETERINARIO");
-    	//persona.setFechaTitulo(12/06/2010);
     	persona.setOtrosEstu("ADMINISTRACION DE EMPRESAS");
-    	//persona.setFechaFin(30/07/2014);
     	persona.setObtenido("Si");
     	persona.setCargo("ADMINISTRADOR DEL AREA DE VETERINARIOS");
-    	//persona.setFechaContra(03/04/2012);
     	persona.setTipoContra("TERMINO FIJO");
-    	listaPersonal.guardarPersonal(persona);
+    	try {
+
+    	persona.setFechaContra(formato.parse(fechaContra));
+    	persona.setFechaFin(formato.parse(fechaTermi));
+    	persona.setFechaTitulo(formato.parse(fechaTitu));
+    	persona.setFechaNacimiento(formato.parse(fechaNaci));
+
+		} catch (ParseException ex) {
+
+   			ex.printStackTrace();
+
+		} 
+    	listaPersonal.guardarPersonal(persona);*/
     	
     	DatosPerfil perfil = new DatosPerfil();
     	perfil.setNumCedula("8359459");
@@ -77,8 +88,12 @@ public class Granja {
     	perfil1.setPregunta("MASCOTA PREFERIDA");
     	perfil1.setRespuesta("LUNA");
     	listaPerfil.guardarPerfil(perfil1);
+    	
+    //	ReportePerfiles rp = new ReportePerfiles();
+    	
+    //	ReportePerfil rp = new ReportePerfil(listaPerfil);
     //	ivan i= new ivan();
-   // 	RecuperarClave i=new RecuperarClave();
+    // 	RecuperarClave i=new RecuperarClave();
 		Login i=new Login(listaAnimal,listaPartos,listaPerfil,listaPersonal);
 	//	MenuAdministrador Ma = new MenuAdministrador();
 	//	MenuEmpleado ME=new MenuEmpleado(); 

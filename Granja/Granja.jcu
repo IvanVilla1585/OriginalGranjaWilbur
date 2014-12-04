@@ -63,64 +63,92 @@
 			<active>false</active>
 		</docitem>
 		<docitem>
-			<path>src\formularios\ModificarContraseña.java</path>
+			<path>src\Utilidades\Validaciones.java</path>
 			<source>true</source>
 			<index>1</index>
 			<active>false</active>
 		</docitem>
 		<docitem>
-			<path>src\formularios\GestionarAnimal.java</path>
+			<path>src\formularios\Granja.java</path>
 			<source>true</source>
 			<index>2</index>
-			<active>true</active>
+			<active>false</active>
 		</docitem>
 		<docitem>
-			<path>src\Utilidades\DepartamentosMunicipios.java</path>
+			<path>src\Utilidades\ListarPersonal.java</path>
 			<source>true</source>
 			<index>3</index>
 			<active>false</active>
 		</docitem>
 		<docitem>
-			<path>src\formularios\Granja.java</path>
+			<path>src\formularios\GestionarPerfil.java</path>
 			<source>true</source>
 			<index>4</index>
 			<active>false</active>
 		</docitem>
 		<docitem>
-			<path>src\formularios\Menu_Principal.java</path>
+			<path>src\formularios\RecuperarClave.java</path>
 			<source>true</source>
 			<index>5</index>
 			<active>false</active>
 		</docitem>
 		<docitem>
-			<path>src\formularios\AcercaDe.java</path>
+			<path>src\folderlistas\listas\ListaPersonal.java</path>
 			<source>true</source>
 			<index>6</index>
 			<active>false</active>
 		</docitem>
 		<docitem>
-			<path>src\formularios\RecuperarClave.java</path>
+			<path>src\folderlistas\listas\ListaPerfil.java</path>
 			<source>true</source>
 			<index>7</index>
 			<active>false</active>
 		</docitem>
 		<docitem>
-			<path>src\formularios\GestionarPerfil.java</path>
+			<path>src\formularios\MenuEmpleado.java</path>
 			<source>true</source>
 			<index>8</index>
 			<active>false</active>
 		</docitem>
 		<docitem>
-			<path>src\Utilidades\Validaciones.java</path>
+			<path>src\formularios\Menu_Principal.java</path>
 			<source>true</source>
 			<index>9</index>
 			<active>false</active>
 		</docitem>
 		<docitem>
-			<path>src\formularios\Login.java</path>
+			<path>src\formularios\GestionarAnimal.java</path>
 			<source>true</source>
 			<index>10</index>
 			<active>false</active>
 		</docitem>
+		<docitem>
+			<path>src\Utilidades\ReportesPerfil.java</path>
+			<source>true</source>
+			<index>11</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>src\Utilidades\ReportePerfiles.java</path>
+			<source>true</source>
+			<index>12</index>
+			<active>true</active>
+		</docitem>
 	</open_files>
+	<breakpoints>
+		<breakpoint>
+			<path>src\formularios\GestionarPersonal.java</path>
+			<class/>
+			<session/>
+			<line>155</line>
+			<enable>true</enable>
+		</breakpoint>
+		<breakpoint>
+			<path>src\formularios\Menu_Principal.java</path>
+			<class/>
+			<session/>
+			<line>262</line>
+			<enable>true</enable>
+		</breakpoint>
+	</breakpoints>
 </workspace_user>

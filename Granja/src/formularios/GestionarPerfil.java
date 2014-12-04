@@ -273,7 +273,7 @@ public class GestionarPerfil extends JFrame implements ActionListener, KeyListen
         	this.LimpiarCampos();
         	this.ActivarCampos();
         	swModi=0;	
-        	
+        	this.desactivarBotones();
         }	
    			
   		if (event.getSource() == botonSalir) {
@@ -291,52 +291,63 @@ public class GestionarPerfil extends JFrame implements ActionListener, KeyListen
 	    if(event.getSource()==botonGuardar){
 	        
 	    	this.guardarCamposPerfil();
-	        if (swModi==0){
-	        	
-	        	if (listaPerfi.existePerfil(perfil.getNumCedula())){
-	        		
-	        		JOptionPane.showMessageDialog(null,"El número de documento ya existe","Gestionar Perfil - S.G.P",
-											 	  JOptionPane.OK_OPTION,icoMensajeInfor); 
-	        	}else{
-	        		if (listaPerfi.guardarPerfil(perfil)){
-	        			
-	        			JOptionPane.showMessageDialog(null,"El registro se guardo correctamente","Gestionar Perfil - S.G.P",
-											 	  	  JOptionPane.OK_OPTION,icoMensajeInfor);  
-		        		this.LimpiarCampos();
-		        		this.DesactivarCampos();
-	        		}else{
-	        			
-	        			JOptionPane.showMessageDialog(null,"El registro no fue guardado","Gestionar Perfil - S.G.P",
-											 	  	  JOptionPane.OK_OPTION,icoMensajeInfor); 
-	        		}
-	        	}
-	        	
-	        }else{
-	        	
-	        	int n= JOptionPane.showConfirmDialog(this,"Esta seguro que desea modificar este registro");
-	            if(n==0){
-		   			if (listaPerfi.modificarPerfil(perfil)){
+	    	this.inicializarCont(cont);
+			if (!v.validarContraseñ(pasContraIngreso.getText(),cont)){
+				
+				JOptionPane.showMessageDialog(null,"La contraseña debe contener al menos un:" + "\n" + "caracter especial, letra mayuscula,"
+											  + "\n" + "letra minuscula, número y un tamnaño como minimo de 8 caracteres","Gestionar Perfil - S.G.P",
+											  JOptionPane.OK_OPTION,icoMensajeInfor);
+				pasContraIngreso.requestFocus();
+				pasContraIngreso.setText("");
+			}else{
+			
+		        if (swModi==0){
+		        	
+		        	if (listaPerfi.existePerfil(perfil.getNumCedula())){
 		        		
-		        		JOptionPane.showMessageDialog(null,"El registro se modifico correctamente","Gestionar Perfil - S.G.P",
-											 	  	  JOptionPane.OK_OPTION,icoMensajeInfor);  
-		        		this.LimpiarCampos();
-		        		this.DesactivarCampos();
-		    		}else{
-		        		
-		        		JOptionPane.showMessageDialog(null,"El registro no fue modificado","Gestionar Perfil - S.G.P",
-											 	  	  JOptionPane.OK_OPTION,icoMensajeInfor); 
-		    		}
-		    	}	
-			}
-	    		
-	    	botonGuardar.setEnabled(false);
-	    		
+		        		JOptionPane.showMessageDialog(null,"El número de documento ya existe","Gestionar Perfil - S.G.P",
+												 	  JOptionPane.OK_OPTION,icoMensajeInfor); 
+		        	}else{
+		        		if (listaPerfi.guardarPerfil(perfil)){
+		        			
+		        			JOptionPane.showMessageDialog(null,"El registro se guardo correctamente","Gestionar Perfil - S.G.P",
+												 	  	  JOptionPane.OK_OPTION,icoMensajeInfor);  
+			        		this.LimpiarCampos();
+			        		this.DesactivarCampos();
+		        		}else{
+		        			
+		        			JOptionPane.showMessageDialog(null,"El registro no fue guardado","Gestionar Perfil - S.G.P",
+												 	  	  JOptionPane.OK_OPTION,icoMensajeInfor); 
+		        		}
+		        	}
+		        	
+		        }else{
+		        	
+		        	int n= JOptionPane.showConfirmDialog(this,"Esta seguro que desea modificar este registro");
+		            if(n==0){
+			   			if (listaPerfi.modificarPerfil(perfil)){
+			        		
+			        		JOptionPane.showMessageDialog(null,"El registro se modifico correctamente","Gestionar Perfil - S.G.P",
+												 	  	  JOptionPane.OK_OPTION,icoMensajeInfor);  
+			        		this.LimpiarCampos();
+			        		this.DesactivarCampos();
+			    		}else{
+			        		
+			        		JOptionPane.showMessageDialog(null,"El registro no fue modificado","Gestionar Perfil - S.G.P",
+												 	  	  JOptionPane.OK_OPTION,icoMensajeInfor); 
+			    		}
+			    	}	
+				}
+		    		
+		    	botonGuardar.setEnabled(false);
+	        }		
 		}
 	    	
 		if (event.getSource()==botonLimpiar){
 			
 			this.LimpiarCampos();
 			this.DesactivarCampos();
+			this.activarBotones();
 		}
 	
 //****************************************** PROGRAMAR EL BOTON MODIFICAR *********************************************************************//
@@ -442,8 +453,8 @@ public class GestionarPerfil extends JFrame implements ActionListener, KeyListen
 			this.inicializarCont(cont);
 			if (!v.validarContraseñ(pasContraIngreso.getText(),cont)){
 				
-				JOptionPane.showMessageDialog(null,"La contraseña debe contener al menos un:" + "\n" + "caracter especial, letra mayuscula,"
-											  + "\n" + "letra minuscula, número y un tamnaño como minimo de 8 caracteres","Gestionar Perfil - S.G.P",
+				JOptionPane.showMessageDialog(null,"La contraseña debe contener al menos:" + "\n" + "1 caracter especial" + "\n"+"1 letra mayúscula, minúscula"
+											  + "\n" + "1 número y un tamnaño como mínimo de 8 caracteres","Gestionar Perfil - S.G.P",
 											  JOptionPane.OK_OPTION,icoMensajeInfor);
 				pasContraIngreso.requestFocus();
 				pasContraIngreso.setText("");
@@ -630,6 +641,25 @@ public class GestionarPerfil extends JFrame implements ActionListener, KeyListen
 			
 				cont[j] = 0;
 			} 	
+	}
+	
+	public void desactivarBotones(){
+		
+		botonGuardar.setEnabled(false);
+		botonCrear.setEnabled(false);
+		botonModificar.setEnabled(false);
+		botonConsultar.setEnabled(false);
+		botonEliminar.setEnabled(false);
+		botonListar.setEnabled(false);
+	}
+	
+	public void activarBotones(){
+		 
+		botonCrear.setEnabled(true);
+		botonModificar.setEnabled(true);
+		botonConsultar.setEnabled(true);
+		botonEliminar.setEnabled(true);
+		botonListar.setEnabled(true);
 	}
 	
 	public void validarCamposPerfil() {

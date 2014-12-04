@@ -4,6 +4,8 @@ C:\Users\Helen\Desktop\ProyectoWilbur\Granja\src\Utilidades\ListarAnimales.java
 C:\Users\Helen\Desktop\ProyectoWilbur\Granja\src\Utilidades\ListarPartos.java
 C:\Users\Helen\Desktop\ProyectoWilbur\Granja\src\Utilidades\ListarPersonal.java
 C:\Users\Helen\Desktop\ProyectoWilbur\Granja\src\Utilidades\PintaImagen.java
+C:\Users\Helen\Desktop\ProyectoWilbur\Granja\src\Utilidades\ReportePerfiles.java
+C:\Users\Helen\Desktop\ProyectoWilbur\Granja\src\Utilidades\ReportesPerfil.java
 C:\Users\Helen\Desktop\ProyectoWilbur\Granja\src\Utilidades\Validaciones.java
 C:\Users\Helen\Desktop\ProyectoWilbur\Granja\src\formularios\AcercaDe.java
 C:\Users\Helen\Desktop\ProyectoWilbur\Granja\src\formularios\AlimentosJaula.java

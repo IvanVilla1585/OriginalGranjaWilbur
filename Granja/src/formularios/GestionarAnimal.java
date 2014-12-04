@@ -6,9 +6,7 @@ import java.awt.event.*;
 import java.awt.*;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
-import Utilidades.*; 
-import java.util.ArrayList;
-import java.util.List;
+import Utilidades.*;  
 import java.util.Date;
 import java.util.Calendar;
 import java.beans.*;
@@ -1469,7 +1467,8 @@ public class GestionarAnimal extends JFrame implements ActionListener, KeyListen
 					JOptionPane.showMessageDialog(null,"Pestaña Equivocada","Gestionar Animal - S.G.P",
 										  JOptionPane.OK_OPTION,icoMensajeInfor); 
 				}
-			}       	
+			}
+			this.activarBotones();       	
 		} 
 			
 				
@@ -1505,6 +1504,7 @@ public class GestionarAnimal extends JFrame implements ActionListener, KeyListen
 		   		//	dateFechaPartPar.requestFocus();
 		   		 }	
 	   	   }
+	   	   this.desactivarBotones();
 	    }
 	    
 	//**************************************** CODIGO DEL BOTON MODIFICAR *********************************************************************************//
@@ -2161,6 +2161,25 @@ public class GestionarAnimal extends JFrame implements ActionListener, KeyListen
 				break;
 		}
 		return codigo;
+	}
+	
+	public void desactivarBotones(){
+		
+		botonGuardar.setEnabled(false);
+		botonCrear.setEnabled(false);
+		botonModificar.setEnabled(false);
+		botonConsultar.setEnabled(false);
+		botonEliminar.setEnabled(false);
+		botonListar.setEnabled(false);
+	}
+	
+	public void activarBotones(){
+		 
+		botonCrear.setEnabled(true);
+		botonModificar.setEnabled(true);
+		botonConsultar.setEnabled(true);
+		botonEliminar.setEnabled(true);
+		botonListar.setEnabled(true);
 	}
 	    
 	public void validarCamposPartos() {

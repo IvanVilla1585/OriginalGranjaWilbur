@@ -5,6 +5,11 @@ import java.util.*;
 import java.io.*; 
 import java.awt.Desktop;
 import listas.*;
+import Utilidades.ReportePerfiles;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 
 
@@ -24,6 +29,7 @@ public class Menu_Principal implements ActionListener, MouseListener {
 	ListaPartos listaPart;
 	ListaPerfil listaPerfi;
 	ListaPersonal listaPersona;
+	ReportePerfiles reporte;
 
     public Menu_Principal(ListaAnimales listaAnimal, ListaPartos listaParto, ListaPerfil listaPerfil, ListaPersonal listaPersonal,String perfil) {
     	
@@ -108,6 +114,7 @@ public class Menu_Principal implements ActionListener, MouseListener {
 		    	MenuBarPPal.add(menuInformes);
 		    	menItemReportes = new JMenuItem ("Reportes");
 		    	menuInformes.add(menItemReportes);
+		    	menItemReportes.addActionListener(this);
 		    	menItemBackup = new JMenuItem ("Copia de Seguridad");
 		    	menuInformes.add(menItemBackup);
 		    	
@@ -212,6 +219,7 @@ public class Menu_Principal implements ActionListener, MouseListener {
     	this.listaPart = listaParto;
     	this.listaPerfi = listaPerfil;
     	this.listaPersona = listaPersonal;
+    	reporte = new ReportePerfiles(this.listaPerfi);
     
     	
     }
@@ -244,6 +252,14 @@ public class Menu_Principal implements ActionListener, MouseListener {
     	{ 
     		
     			ModificarContraseña mC = new ModificarContraseña(listaPerfi, listaPersona);
+    		
+    	}
+    	
+    	if (e.getSource()==menItemReportes)
+    	{   
+                String Tabla = "Perfiles";
+				String Campo = "Registros";
+				reporte.crearInformeTabla(Tabla,Campo);
     		
     	}
     		
