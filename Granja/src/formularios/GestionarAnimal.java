@@ -257,9 +257,7 @@ public class GestionarAnimal extends JFrame implements ActionListener, KeyListen
         dateFechaNaci.setIcon(icoCalendario);
 		dateFechaNaci.setBounds( 140, 165, 120, 25 );
 		panelAnimal.add(dateFechaNaci);
-		dateFechaNaci.addKeyListener(this);
-//		dateFechaNaci.getDateEditor().getUiComponent().addPropertyChangeListener(this);
-		dateFechaNaci.getDateEditor().getUiComponent().addMouseListener(this);
+		dateFechaNaci.setMaxSelectableDate(new Date());
         
         labelEdad = new JLabel("Edad: ");
         labelEdad.setBounds(325, 165, 100, 25); 
@@ -328,8 +326,7 @@ public class GestionarAnimal extends JFrame implements ActionListener, KeyListen
         dateFechaDestete.setIcon(icoCalendario);
 		dateFechaDestete.setBounds( 140, 285, 120, 25 );
 		panelAnimal.add(dateFechaDestete);
-		dateFechaDestete.addKeyListener(this);
-		dateFechaDestete.getDateEditor().getUiComponent().addMouseListener(this);
+		dateFechaDestete.setMaxSelectableDate(new Date());
         
         labelFechaConsu = new JLabel("Fecha Ultimo Alimento:");
         labelFechaConsu.setBounds(325, 285, 180, 25);
@@ -340,8 +337,7 @@ public class GestionarAnimal extends JFrame implements ActionListener, KeyListen
         dateFechaConsuAlimento.setIcon(icoCalendario);
 		dateFechaConsuAlimento.setBounds( 460, 285, 120, 25 );
 		panelAnimal.add(dateFechaConsuAlimento);
-		dateFechaConsuAlimento.addKeyListener(this);
-		dateFechaConsuAlimento.getDateEditor().getUiComponent().addMouseListener(this);
+		dateFechaConsuAlimento.setMaxSelectableDate(new Date());
         
         JPanel panelDatosParto = new JPanel();
 
@@ -372,9 +368,9 @@ public class GestionarAnimal extends JFrame implements ActionListener, KeyListen
         dateFechaParto = new JDateChooser();
         dateFechaParto.setIcon(icoCalendario);
 		dateFechaParto.setBounds( 460, 25, 120, 25 );
-		panelDatosParto.add(dateFechaParto);
-		dateFechaParto.addKeyListener(this);
-		dateFechaParto.getDateEditor().getUiComponent().addMouseListener(this);
+		panelDatosParto.add(dateFechaParto); 
+		dateFechaParto.setMaxSelectableDate(new Date());
+		
         
         labelCodMadre = new JLabel("*Código Madre:");
         labelCodMadre.setBounds(25, 65, 180, 25); 
@@ -793,10 +789,9 @@ public class GestionarAnimal extends JFrame implements ActionListener, KeyListen
         
         //Calendario 
 		dateFechaPartPar = new JDateChooser();
-		dateFechaPartPar.setIcon(icoCalendario);
-		dateFechaPartPar.setDateFormatString("dd/MM/yyyy");
+		dateFechaPartPar.setIcon(icoCalendario); 
 		dateFechaPartPar.setBounds( 440, 115, 120, 25 );
-		dateFechaPartPar.addKeyListener(this);
+		dateFechaPartPar.setMaxSelectableDate(new Date());
 		panelPartos.add(dateFechaPartPar);
         
         JPanel panelIdenMadre = new JPanel();
@@ -1677,61 +1672,10 @@ public class GestionarAnimal extends JFrame implements ActionListener, KeyListen
 	    	}else{
 	    	
 	    		textCamadaPar.setText(Integer.toString(Sumatoria(textVivosPar,textMuertosPar)));
+	    		this.DesactivarCamposPartos();
 	    		botonGuardar.setEnabled(true);
 	    	}
-	    }
-	    
-
-
-	    
-
-	 /*   if (e.getSource()==textNacer && e.getKeyCode() == KeyEvent.VK_ENTER){
-	    
-	    	
-	    	if (textNacer.getText().equals("")){
-	    		
-	    		JOptionPane.showMessageDialog(null,"Campo Obligatorios");
-	    		e.consume();	
-	    	}else{
-	    		
-	    		if (v.validaFecha(dateFechaNaci)==false){
-	    		
-	    			textEdad.setText(Long.toString(v.calcularDias(dateFechaNaci)));
-	    		}else{
-	    			
-	    			JOptionPane.showMessageDialog(null,"Fecha mayor a la fecha actual");
-	    			dateFechaNaci.requestFocus();
-	    		}
-	    	}
-	    }	
-	    /*	if (e.getSource()==comboFechaConsuAlimento && e.getKeyCode() == KeyEvent.VK_ENTER){
-	    		
-	    		if (v.validaFecha(comboFechaConsuAlimento)==false){
-	    		    			
-	    			JOptionPane.showMessageDialog(null,"Fecha mayor a la fecha actual");
-	    			comboFechaConsuAlimento.requestFocus();
-	    		}
-	    	
-	    	}
-	    	
-	    	if (e.getSource()==comboFechaDestete && e.getKeyCode() == KeyEvent.VK_ENTER){
-	    		
-	    		if (v.validaFecha(comboFechaDestete)==true){
-	    		    			
-	    			JOptionPane.showMessageDialog(null,"Fecha mayor a la fecha actual");
-	    			comboFechaDestete.requestFocus();
-	    		}
-	    	
-	    	}
-	    
-	    if (e.getSource()==comboFechaPartoPar && e.getKeyCode()==KeyEvent.VK_ENTER){
-				
-				if(v.validaFecha(comboFechaPartoPar)==true){
-					
-					JOptionPane.showMessageDialog(null,"Fecha mayor a la actual");
-					comboFechaPartoPar.requestFocus();
-				}
-		}*/
+	    } 
 	     	
 	 }
 	
@@ -1753,71 +1697,10 @@ public class GestionarAnimal extends JFrame implements ActionListener, KeyListen
 					JOptionPane.showMessageDialog(null,"Digite todos los Campos Obligatorios");
 					e.consume();
 				}else{*/
-					
+					this.DesactivarCampos();
 					botonGuardar.setEnabled(true);
 		//	}
-	    }
-	    
-        if ( dateFechaNaci.getDate() == null ){
-        	
-			JOptionPane.showMessageDialog(null,"Seleccione una fecha","Datos Animal - S.G.P",
-										  JOptionPane.OK_OPTION,icoMensajeInfor);  
-				
-		}else{
-			
-			if (v.validaFecha(dateFechaNaci)==false){
-			
-				textEdad.setText(Long.toString(v.calcularDias(dateFechaNaci)));
-				textNacer.requestFocus();
-			}else{
-				
-				JOptionPane.showMessageDialog(null,"Fecha mayor a la fecha actual","Datos Animal - S.G.P",
-										      JOptionPane.OK_OPTION,icoMensajeInfor);  
-				dateFechaNaci.requestFocus();
-			}
-		} 
-			
-		if ( dateFechaDestete.getDate() == null){
-	    		
-    		JOptionPane.showMessageDialog(null,"Seleccione una fecha","Datos Animal - S.G.P",
-							      		  JOptionPane.OK_OPTION,icoMensajeInfor); 
-    			
-    	}else{ 	    		
-    		if (v.validaFecha(dateFechaDestete)==false){
-    		    			
-    			JOptionPane.showMessageDialog(null,"Fecha mayor a la fecha actual","Datos Animal - S.G.P",
-							      		  	  JOptionPane.OK_OPTION,icoMensajeInfor); 
-    			dateFechaDestete.requestFocus();
-    		} 
-    	}
-    	
-    /*	if (/* e.getSource() == dateFechaConsuAlimento && dateFechaConsuAlimento.getDate() == null){
-	    		
-    		JOptionPane.showMessageDialog(null,"Seleccione una fecha","Datos Animal - S.G.P",
-							      		  JOptionPane.OK_OPTION,icoMensajeInfor); 
-    			
-    	}else{ 	    		
-    		if (v.validaFecha(dateFechaConsuAlimento)==false){
-    		    			
-    			JOptionPane.showMessageDialog(null,"Fecha mayor a la fecha actual","Datos Animal - S.G.P",
-							      		  	  JOptionPane.OK_OPTION,icoMensajeInfor); 
-    			dateFechaConsuAlimento.requestFocus();
-    		} 
-    	}
-    	
-    	if (/* e. == dateFechaParto && dateFechaParto.getDate() == null ){
-	    		
-    		JOptionPane.showMessageDialog(null,"Seleccione una fecha","Datos Animal - S.G.P",
-							      		  JOptionPane.OK_OPTION,icoMensajeInfor); 
-    			
-    	}else{ 	    		
-    		if (v.validaFecha(dateFechaParto)==false){
-    		    			
-    			JOptionPane.showMessageDialog(null,"Fecha mayor a la fecha actual","Datos Animal - S.G.P",
-							      		  	  JOptionPane.OK_OPTION,icoMensajeInfor); 
-    			dateFechaParto.requestFocus();
-    		} 
-    	}*/
+	    }  
 	 }
 	    
 	 public void mousePressed(MouseEvent e) {

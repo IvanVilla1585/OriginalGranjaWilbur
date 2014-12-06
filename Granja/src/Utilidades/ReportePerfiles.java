@@ -21,18 +21,18 @@ import listas.*;
 public class ReportePerfiles {
     
     int NumeroColumnas;
-    private nodos.NodoPerfil auxiliar;
-    ListaPerfil listaPerfi = new ListaPerfil();
-    Document documento;
-    public ReportePerfiles(listas.ListaPerfil listaPerfil){
-    	
-    	this.listaPerfi = listaPerfil;
-    }
+    public static NodoPerfil auxiliar = new NodoPerfil();
     
-    public void crearInformeTabla(String tabla,String campo) 
+    Document documento; 
+    
+    public void crearInformeTabla(String tabla,String campo, ListaPerfil listaPerfil) 
     {
+    	
         String nombreArchivo="Informe_Perfil.pdf";
-        documento=new Document();
+        	Document documento = null;
+        	documento = new Document();
+        	auxiliar = listaPerfil.getCabeza();
+        
        // Se crea el documento 
       try
       {      
@@ -90,14 +90,15 @@ public class ReportePerfiles {
               V[1] = "Código Perfil";
 	          V[2] = "Perfil";
               V[3] = "Nombre Usuario"; 
-              V[4] = "Correo Corporativo"; 
+              V[4] = "Correo Corporativo";
+              V[5] = "Pregunta"; 
 	           // ResultSetMetaData metaDatos = rs.getMetaData();
 	            // Se obtiene el numero de columnas.
-	          numeroColumnas = 11;//metaDatos.getColumnCount();       
+	          numeroColumnas = 6;//metaDatos.getColumnCount();       
 	          tabla = new PdfPTable(numeroColumnas);
 	           
 	          PdfPCell celda=null;
-	          for (int i = 0; i < numeroColumnas-1; i++)
+	          for (int i = 0; i < numeroColumnas; i++)
 	          {
 	             String tituloColumna=V[i];
 	             celda = new PdfPCell(new Paragraph(tituloColumna,  FontFactory.getFont("arial",12, Font.BOLD,   BaseColor.BLACK    )     ) );
@@ -117,7 +118,6 @@ public class ReportePerfiles {
 	          String NumDocu, CodiPerfil, Perfil, NomUsuario, Correo, Pregunta;
 	          String V[] = new String[6];
 	          
-	          auxiliar = listaPerfi.getCabeza();
 	          PdfPCell celda;
 	            // Se obtiene el numero de columnas.
 	            numeroColumnas = 6;   
@@ -138,11 +138,12 @@ public class ReportePerfiles {
 	            	V[3] = NomUsuario;
                     V[4] = Correo;
                     V[5] = Pregunta;
-	                for (int i = 0; i < numeroColumnas-1; i++)//lee cada campo del registro activo
+	                for (int i = 0; i < numeroColumnas; i++)//lee cada campo del registro activo
 	                {
 	                       String fila = V[i];
 	                        celda = new PdfPCell(new Paragraph(fila,  FontFactory.getFont("arial",12, Font.NORMAL,   BaseColor.BLACK    )     ) );
 	                        celda.setBackgroundColor(BaseColor.WHITE);
+	                        
 	                        tabla.addCell(celda);
 	                }
 	                auxiliar = auxiliar.getLiga();

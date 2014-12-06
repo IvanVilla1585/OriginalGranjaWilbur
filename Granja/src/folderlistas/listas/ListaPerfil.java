@@ -2,12 +2,13 @@ package listas;
 
 import logica.*;
 import nodos.*;
+import java.util.Date;
 
 public class ListaPerfil {
 	
 	private NodoPerfil cabeza;
 	private NodoPerfil ultimo;
-	
+	private final long  MILI_SEGU_DIA= 24 * 60 * 60 * 1000;
 	public ListaPerfil(){
 		
 		cabeza = null;
@@ -192,7 +193,6 @@ public class ListaPerfil {
     	while (auxi != null){
     		
     		if (auxi.getPerfil().getUsuario().equals(usuario) && auxi.getPerfil().getContraIngreso().equals(contra)){
-    			
     			return auxi.getPerfil();
     		}else{
     			
@@ -200,6 +200,18 @@ public class ListaPerfil {
     		}
     	}
     	return null;
+    }
+    
+    public boolean fechaCambioContra(Date fecha){
+    	
+    	Date fechaActual = new Date();
+    	if (((fechaActual.getTime() - fecha.getTime())/MILI_SEGU_DIA) >= 25){
+    		
+    		return true;
+    	}else{
+    		
+    		return false;
+    	}
     }
     
     public DatosPerfil modificarContraseñaIngrse(DatosPerfil perfil){

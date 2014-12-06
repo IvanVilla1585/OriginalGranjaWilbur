@@ -430,7 +430,7 @@ public class GestionarPerfil extends JFrame implements ActionListener, KeyListen
 											  JOptionPane.OK_OPTION,icoMensajeInfor);  
 				e.consume();	
 			}else{
-				
+				this.DesactivarCampos();
 				botonGuardar.setEnabled(true);
 			}
 		}
@@ -546,6 +546,7 @@ public class GestionarPerfil extends JFrame implements ActionListener, KeyListen
 		    perfil.setRepetirContra(pasRepetirContra.getText());
 		    perfil.setPregunta((String)comboPregunta.getSelectedItem());
 		    perfil.setRespuesta(textRespuesta.getText());
+		    perfil.setFecha(new Date());
 		}
 	   	catch(Exception e){
 	   		System.out.println("Error al listar los datos"+e.getMessage());

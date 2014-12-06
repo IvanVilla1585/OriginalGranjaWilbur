@@ -1,10 +1,12 @@
 package logica;
 
+import java.util.Date;
 
 public class DatosPerfil {
 	
 	private String numCedula, codPerfil, perfil, correoCorpora, contra, repetirContra, pregunta, respuesta;
 	private String usuario, contraIngreso, RepetirContraIngreso;
+	private Date fecha;
 	
 	public String getNumCedula (){
 	
@@ -19,6 +21,17 @@ public class DatosPerfil {
 	public String getCodPerfil (){
 	
 		return  codPerfil;	
+	}
+	
+	public  Date getFecha(){
+	
+		return fecha;	
+	}
+	
+	public void setFecha (Date fecha){
+		
+		this.fecha=fecha;
+		
 	}
 	
 	public void setCodPerfil (String codPerfil){

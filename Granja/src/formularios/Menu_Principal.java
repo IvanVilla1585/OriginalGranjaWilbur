@@ -219,7 +219,7 @@ public class Menu_Principal implements ActionListener, MouseListener {
     	this.listaPart = listaParto;
     	this.listaPerfi = listaPerfil;
     	this.listaPersona = listaPersonal;
-    	reporte = new ReportePerfiles(this.listaPerfi);
+    	reporte = new ReportePerfiles();
     
     	
     }
@@ -259,7 +259,7 @@ public class Menu_Principal implements ActionListener, MouseListener {
     	{   
                 String Tabla = "Perfiles";
 				String Campo = "Registros";
-				reporte.crearInformeTabla(Tabla,Campo);
+				reporte.crearInformeTabla(Tabla,Campo,listaPerfi);
     		
     	}
     		

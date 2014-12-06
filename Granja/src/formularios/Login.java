@@ -21,6 +21,7 @@ public class Login extends JFrame implements ActionListener, KeyListener{
 	ListaPartos listaPart;
 	ListaPerfil listaPerfi;
 	ListaPersonal listaPersona;
+//	String TIPO_MENSAJE = "Login";
 
 	Validaciones v = new Validaciones ();
     public Login(ListaAnimales listaAnimal, ListaPartos listaParto, ListaPerfil listaPerfil, ListaPersonal listaPersonal) {
@@ -143,7 +144,11 @@ public class Login extends JFrame implements ActionListener, KeyListener{
    		 
    			if (perfi != null) {
    				if (perfi.getUsuario().equals(textNomUsuario.getText()) && perfi.getContraIngreso().equals(PasContraseña.getText())){
-					nombre = perfi.getPerfil();		
+					nombre = perfi.getPerfil();  
+	    			if (listaPerfi.fechaCambioContra(perfi.getFecha())){
+	    				JOptionPane.showMessageDialog(null,"Debe cambiar su contraseña." + "\n" + "Se recomienda cambiar cada 30 días","Inicio de Sesion - S.G.P",
+										      		  JOptionPane.OK_OPTION,icoMensajeInfor);
+	    			}		
 					Menu_Principal MeP= new Menu_Principal (listaAnima, listaPart, listaPerfi, listaPersona,nombre);
 					textNomUsuario.setText("");
 					PasContraseña.setText("");

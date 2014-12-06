@@ -141,8 +141,8 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
 		dateFechaNaci = new JDateChooser();
 		dateFechaNaci.setIcon(icoCalendario);
 		dateFechaNaci.setBounds( 520, 65, 120, 25 );
-		panelDatosPerso.add(dateFechaNaci);  
-		dateFechaNaci.getDateEditor().getUiComponent().addMouseListener(this); 
+		panelDatosPerso.add(dateFechaNaci); 
+		dateFechaNaci.setMaxSelectableDate(new Date());
         
         labelDepar = new JLabel("*Departamento:");
         labelDepar.setBounds(10, 105, 150, 25); 
@@ -326,8 +326,8 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
 		dateFechaTitulo = new JDateChooser();
 		dateFechaTitulo.setBounds( 645, 25, 120, 25 );
 		dateFechaTitulo.setIcon(icoCalendario);
-		panelFormacion.add(dateFechaTitulo); 
-		dateFechaTitulo.getDateEditor().getUiComponent().addMouseListener(this);
+		panelFormacion.add(dateFechaTitulo);  
+		dateFechaTitulo.setMaxSelectableDate(new Date());
         
         JPanel panelOtrosEstu = new JPanel();
 
@@ -362,7 +362,7 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
 		dateFechaFin.setBounds( 630, 25, 120, 25 );
 		panelOtrosEstu.add(dateFechaFin);
 		dateFechaFin.addKeyListener(this);
-		dateFechaFin.getDateEditor().getUiComponent().addMouseListener(this);
+		dateFechaTitulo.setMaxSelectableDate(new Date());
         
         labelObtenido = new JLabel("Obtenido:");
         labelObtenido.setBounds(5, 65, 180, 25); 
@@ -418,7 +418,7 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
 		dateFechaContra.setIcon(icoCalendario);
 		dateFechaContra.setBounds( 645, 25, 120, 25 );
 		panelDatosLaborales.add(dateFechaContra); 
-		dateFechaContra.getDateEditor().getUiComponent().addMouseListener(this);
+		dateFechaTitulo.setMaxSelectableDate(new Date());
         
         labelTipoContra = new JLabel("*Tipo de Contrato:");
         labelTipoContra.setBounds(10, 65, 150, 25); 
@@ -644,10 +644,10 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
 //******************************************** CODIGOBOTON CONSULTAR ******************************************************************//
     	
     	if(event.getSource()==botonConsultar){
-		
-			swModifi = 0;
+    		
+    		swModifi = 0;
  			this.llenarDatos();
-			this.DesactivarCampos(); 
+			this.DesactivarCampos();
 		}
 
 //******************************************* PROGRAMAMOS EL BOTON ELIMINAR ***************************************************************//		
@@ -733,7 +733,7 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
 										     JOptionPane.OK_OPTION,icoMensajeInfor);  
 				textTipoContra.requestFocus();
 			}else{
-				
+				this.DesactivarCampos();
 				botonGuardar.setEnabled(true);
 			}
 		}  
@@ -746,69 +746,7 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
   	public void keyTyped(KeyEvent e) {
 	}  
 	
-	public void mouseClicked(MouseEvent e) { 
-		
-		if (e.getSource() == dateFechaNaci && dateFechaNaci.getDate() == null){ 
-			
-			JOptionPane.showMessageDialog(null,"Seleccione una fecha","Gestionar Personal - S.G.P",
-										 JOptionPane.OK_OPTION,icoMensajeInfor);  
-			dateFechaNaci.requestFocus();
-		}else{
-			if(v.validaFecha(dateFechaNaci)==true){
-				
-				JOptionPane.showMessageDialog(null,"Fecha mayor a la actual","Gestionar Personal - S.G.P",
-										 JOptionPane.OK_OPTION,icoMensajeInfor); 
-				dateFechaNaci.requestFocus();
-			}else{
-				ComboDepar.requestFocus();
-			}
-		}
-		
-	/*	if (e.getSource() ==dateFechaTitulo && dateFechaTitulo.getDate().toString().equals("")){
-			
-			JOptionPane.showMessageDialog(null,"Seleccione una fecha","Gestionar Personal - S.G.P",
-										 JOptionPane.OK_OPTION,icoMensajeInfor);  
-			dateFechaTitulo.requestFocus();
-		}else{
-			if(v.validaFecha(dateFechaTitulo)==true){
-				
-				JOptionPane.showMessageDialog(null,"Fecha mayor a la actual","Gestionar Personal - S.G.P",
-										     JOptionPane.OK_OPTION,icoMensajeInfor);
-				dateFechaTitulo.requestFocus();
-			}else{
-				textOtrosEstudios.requestFocus();
-			}
-		}
-			
-		if (e.getSource() ==dateFechaContra && dateFechaContra.getDate().toString().equals("")){
-			
-			JOptionPane.showMessageDialog(null,"Seleccione una fecha","Gestionar Personal - S.G.P",
-										 JOptionPane.OK_OPTION,icoMensajeInfor); 
-			dateFechaContra.requestFocus();
-		}else{
-			if(v.validaFecha(dateFechaContra)==true){
-				
-				JOptionPane.showMessageDialog(null,"Fecha mayor a la actual","Gestionar Personal - S.G.P",
-										     JOptionPane.OK_OPTION,icoMensajeInfor);
-				dateFechaContra.requestFocus();
-			}else{
-				textTipoContra.requestFocus();
-			}
-		}
-		
-		if (e.getSource() ==dateFechaFin && dateFechaFin.getDate().toString().equals("")){
-			
-			JOptionPane.showMessageDialog(null,"Seleccione una fecha","Gestionar Personal - S.G.P",
-										 JOptionPane.OK_OPTION,icoMensajeInfor); 
-			dateFechaFin.requestFocus();
-		}else{
-			if(v.validaFecha(dateFechaFin)==true){
-				
-				JOptionPane.showMessageDialog(null,"Fecha mayor a la actual","Gestionar Personal - S.G.P",
-										     JOptionPane.OK_OPTION,icoMensajeInfor);
-				dateFechaFin.requestFocus();
-			} 
-		}*/
+	public void mouseClicked(MouseEvent e) {  
 		
     }
     
@@ -825,25 +763,7 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
     public void mouseExited(MouseEvent e) {
     }
     
-    public void propertyChange(PropertyChangeEvent evt){ 
-		    	
-		/*        if ( evt.getSource() == dateFechaNaci && evt.getPropertyName().equals("date")) {
-		           if (dateFechaNaci.getDate() == null){
-			
-						JOptionPane.showMessageDialog(null,"Seleccione una fecha","Gestionar Personal - S.G.P",
-													 JOptionPane.OK_OPTION,icoMensajeInfor);  
-						dateFechaNaci.requestFocus();
-					}else{
-						if(v.validaFecha(dateFechaNaci)==true){
-							
-							JOptionPane.showMessageDialog(null,"Fecha mayor a la actual","Gestionar Personal - S.G.P",
-													 JOptionPane.OK_OPTION,icoMensajeInfor); 
-							dateFechaNaci.requestFocus();
-						}else{
-							ComboDepar.requestFocus();
-						}
-					}
-		        } */
+    public void propertyChange(PropertyChangeEvent evt){  
 		 
     }
     
@@ -1192,55 +1112,7 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
 			} 
 		}); */
         
-    	
-		
-/*		dateFechaTitulo.addPropertyChangeListener(new PropertyChangeListener() {
- 
-		    public void propertyChange(PropertyChangeEvent evt) {
-		        if (evt.getPropertyName().equals("date")) {
-		           if(v.validaFecha(dateFechaTitulo)==true){
-				
-						JOptionPane.showMessageDialog(null,"Fecha mayor a la actual","Gestionar Personal - S.G.P",
-												     JOptionPane.OK_OPTION,icoMensajeInfor);
-						dateFechaTitulo.requestFocus();
-					}else{
-						textOtrosEstudios.requestFocus();
-					}
-		        }
-		    }
-		});
-		
-		dateFechaContra.addPropertyChangeListener(new PropertyChangeListener() {
- 
-		    public void propertyChange(PropertyChangeEvent evt) {
-		        if (evt.getPropertyName().equals("date")) {
-		           if(v.validaFecha(dateFechaContra)==true){
-				
-						JOptionPane.showMessageDialog(null,"Fecha mayor a la actual","Gestionar Personal - S.G.P",
-												     JOptionPane.OK_OPTION,icoMensajeInfor);
-						dateFechaContra.requestFocus();
-					}else{
-						textTipoContra.requestFocus();
-					}
-		        }
-		    }
-		});
-		
-		dateFechaFin.addPropertyChangeListener(new PropertyChangeListener() {
- 
-		    public void propertyChange(PropertyChangeEvent evt) {
-		        if (evt.getPropertyName().equals("date")) {
-		           if(v.validaFecha(dateFechaFin)==true){
-				
-						JOptionPane.showMessageDialog(null,"Fecha mayor a la actual","Gestionar Personal - S.G.P",
-												     JOptionPane.OK_OPTION,icoMensajeInfor);
-						dateFechaFin.requestFocus();
-					}else{
-						textOtrosEstudios.requestFocus();
-					}
-		        }
-		    }
-		}); */
+    	 
 
     } 
 }

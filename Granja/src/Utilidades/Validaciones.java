@@ -77,7 +77,7 @@ public class Validaciones {
     	int num = (int) (caracter);
     	if (num==KeyEvent.VK_ENTER){
     		if (j.getText().equals("")){
-    			JOptionPane.showMessageDialog(null,"Este campo es obligatorio","Gestionar Perfil - S.G.P",
+    			JOptionPane.showMessageDialog(null,"Este campo es obligatorio","S.G.P",
 											  JOptionPane.OK_OPTION,icoMensajeInfor);  
     			j.requestFocus();
     		}
@@ -90,7 +90,7 @@ public class Validaciones {
     	int num = (int) (caracter);
     	if (num==KeyEvent.VK_ENTER){
     		if (j.getText().equals("")){
-    			JOptionPane.showMessageDialog(null,"Este campo es obligatorio","Gestionar Perfil - S.G.P",
+    			JOptionPane.showMessageDialog(null,"Este campo es obligatorio","S.G.P",
 											  JOptionPane.OK_OPTION,icoMensajeInfor); 
     			j.requestFocus();
     		}
