@@ -98,8 +98,7 @@ public class Login extends JFrame implements ActionListener, KeyListener{
         PasContraseña.addKeyListener(this);
         
         icoAceptar = new ImageIcon("Imagenes\\Aceptar.jpg");
-        botonAceptar = new JButton(icoAceptar);
-        botonAceptar.setBackground(Color.lightGray); 
+        botonAceptar = new JButton(icoAceptar); 
         botonAceptar.setBounds(70, 230, 90, 40);
         this.getContentPane().add(botonAceptar);
         botonAceptar.setVisible(true);
@@ -146,8 +145,8 @@ public class Login extends JFrame implements ActionListener, KeyListener{
    				if (perfi.getUsuario().equals(textNomUsuario.getText()) && perfi.getContraIngreso().equals(PasContraseña.getText())){
 					nombre = perfi.getPerfil();  
 	    			if (listaPerfi.fechaCambioContra(perfi.getFecha())){
-	    				JOptionPane.showMessageDialog(null,"Debe cambiar su contraseña." + "\n" + "Se recomienda cambiar cada 30 días","Inicio de Sesion - S.G.P",
-										      		  JOptionPane.OK_OPTION,icoMensajeInfor);
+	    				JOptionPane.showMessageDialog(null,"Debe cambiar su contraseña." + "\n" + "Se recomienda cambiar cada 30 días,"+
+	    											  "\n"+"después del primer registro","Inicio de Sesion - S.G.P", JOptionPane.OK_OPTION,icoMensajeInfor);
 	    			}		
 					Menu_Principal MeP= new Menu_Principal (listaAnima, listaPart, listaPerfi, listaPersona,nombre);
 					textNomUsuario.setText("");

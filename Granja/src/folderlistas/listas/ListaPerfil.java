@@ -1,25 +1,37 @@
+/**
+ * ListaPerfil.java
+ *
+ * Clase que contiene los metodos de un CRUD en una lista simplemente ligada
+ *
+ * @author Veronica Andrea Velez
+ * @author Jhon Fredy Parra
+ * @author Ivan Dario Villa Ramirez
+ * @version 1.0 12/11/2014
+ * @since JDK version 1.6.0_20
+ */
+
 package listas;
 
-import logica.*;
-import nodos.*;
+import logica.DatosPerfil;
+import nodos.NodoPerfil;
 import java.util.Date;
 
 public class ListaPerfil {
 	
+	/** primer nodo dela lista */
 	private NodoPerfil cabeza;
+	
+	/** ultimo nodo dela lista */
 	private NodoPerfil ultimo;
+	
+	/** milisegundos que contiened un día */
 	private final long  MILI_SEGU_DIA= 24 * 60 * 60 * 1000;
+	
 	public ListaPerfil(){
 		
 		cabeza = null;
 		ultimo = null;
-	}
-	
-	public ListaPerfil(ListaPerfil listaPerf){
-		
-	/*	this.cabeza = listaPerf.getCabeza();
-		this.ultimo = listaPerf.getUltimo();*/
-	}
+	} 
 	
 	public NodoPerfil getCabeza() {
         
@@ -141,13 +153,13 @@ public class ListaPerfil {
     	return perfil;
     }
     
-    public DatosPerfil BuscarPerfilContraIngreso(String contra){
+    public DatosPerfil BuscarPerfilCorreo(String contra){
     	
     	NodoPerfil auxi=cabeza;
     	DatosPerfil perfil=null;
     	while (auxi !=null){
     		
-    		if (auxi.getPerfil().getContraIngreso().equals(contra)){
+    		if (auxi.getPerfil().getCorreoCorpora().equals(contra)){
     			
     			perfil = auxi.getPerfil();
     			return perfil;
@@ -171,6 +183,13 @@ public class ListaPerfil {
     	return false;
     }
     
+    /** Confirmar los datos del usuario para recuperar la contraseña en la lista de perfiles
+     *
+     *@param usuario nombre de usuario de ingreso al sistema
+     *@param pregunta  pregunta secreta
+     *@param respuesta respuesta a la pregunta secreta
+     *@return retorna todos los datos del usuario consultado
+     */
     public DatosPerfil confirmarDatosContra(String usuario, String pregunta,String respuesta){
     	
     	NodoPerfil auxi = cabeza;
@@ -187,6 +206,12 @@ public class ListaPerfil {
     	return perfil;
     }
     
+    /** Confirmar los datos del usuario al ingreso al sistema en la lista de perfiles
+     *
+     *@param usuario nombre de usuario de ingreso al sistema
+     *@param contra  contraseña de ingreso al sistema
+     *@return retorna todos los datos del usuario y la contraseña dada
+     */
     public DatosPerfil confirmarUsuario(String usuario, String contra){
     	
     	NodoPerfil auxi = cabeza;
@@ -214,6 +239,11 @@ public class ListaPerfil {
     	}
     }
     
+    /** Modificar la contraseña de ingreso en la lista de perfiles
+     *
+     *@param perfil contiene los datos del perfil ya modificado 
+     *@return retorna todos los datos del perfil ya modificado y almacenado
+     */
     public DatosPerfil modificarContraseñaIngrse(DatosPerfil perfil){
     	
     	NodoPerfil auxi = cabeza;

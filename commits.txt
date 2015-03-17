@@ -1,0 +1,41 @@
+﻿commit 102a2d29f930259a6538e640480519a292a6ea6c
+Author: Ivan Villa <trezeguet55@gmail.com>
+Date:   Sat Dec 6 00:36:30 2014 -0500
+
+    Actualización para el PPI
+
+
+commit 281fef6e61de6ad4c6e8e762e13f7f76b402e07e
+Author: Ivan Villa <trezeguet55@gmail.com>
+Date:   Thu Dec 4 14:55:10 2014 -0500
+
+    Actualizacion 1
+
+
+commit 4319673572fd0c63539e56b3f04cf9e678e0cc13
+Author: Ivan Villa <trezeguet55@gmail.com>
+Date:   Wed Nov 26 22:45:24 2014 -0500
+
+    Primera Actualización
+
+
+commit 853464c144899581725964e9c5b212bc2567c4e0
+Merge: 1ab1bb7 c9a78a9
+Author: Ivan Villa <trezeguet55@gmail.com>
+Date:   Mon Nov 24 00:00:32 2014 -0500
+
+    Merge branch 'master' of github.com:IvanVilla1585/OriginalGranjaWilbur
+
+
+commit 1ab1bb71d3fad35607effd42bc0c75870b88bb7d
+Author: Ivan Villa <trezeguet55@gmail.com>
+Date:   Sun Nov 23 23:51:14 2014 -0500
+
+    Proyecto Granja Wilbur
+
+
+commit c9a78a932c02f926d0719c9684a53f2ba587bbb1
+Author: IvanVilla1585 <trezeguet55@gmail.com>
+Date:   Sun Nov 23 14:00:31 2014 -0500
+
+    Initial commit

@@ -19,7 +19,7 @@ public class DatosPersonal {
 	public void setTipoDoc (String tipoDoc){
 		
 		this.tipoDoc=tipoDoc;	
-	}
+	} 
 	
 	public String getNumeroDocumento (){
 

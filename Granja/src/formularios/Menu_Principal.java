@@ -272,7 +272,7 @@ public class Menu_Principal implements ActionListener, MouseListener {
     		
     		try {
 				
-			File path =new File( "Imagenes\\Manual.pdf");
+			File path =new File( "Imagenes\\Manual de Usuario.pdf");
          
           	Desktop.getDesktop().open(path);
           	//Ventana.hide();

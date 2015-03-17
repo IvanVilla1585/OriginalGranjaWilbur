@@ -142,7 +142,7 @@ public class GestionarPersonal extends JFrame implements ActionListener, KeyList
 		dateFechaNaci.setIcon(icoCalendario);
 		dateFechaNaci.setBounds( 520, 65, 120, 25 );
 		panelDatosPerso.add(dateFechaNaci); 
-		dateFechaNaci.setMaxSelectableDate(new Date());
+		dateFechaNaci.setMaxSelectableDate(new Date(96,30,12));
         
         labelDepar = new JLabel("*Departamento:");
         labelDepar.setBounds(10, 105, 150, 25); 

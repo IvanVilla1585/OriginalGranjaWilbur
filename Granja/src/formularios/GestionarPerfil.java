@@ -459,6 +459,7 @@ public class GestionarPerfil extends JFrame implements ActionListener, KeyListen
 				pasContraIngreso.requestFocus();
 				pasContraIngreso.setText("");
 			}
+			
 		}
 		
 		if (e.getSource() == pasRepetirContraIngreso && e.getKeyCode() == KeyEvent.VK_ENTER){
@@ -556,7 +557,7 @@ public class GestionarPerfil extends JFrame implements ActionListener, KeyListen
 	public void llenarDatosPerfil() {
 		
 		int opc=-2;
-		String[]opciones = { "Número de Documento","Nombre de Usuario","Contraseña de Ingreso"};
+		String[]opciones = { "Número de Documento","Nombre de Usuario","Correo Corporativo"};
 		if (swModi==1){
 				
 			buscarPerfil = listaPerfi.BuscarPerfil(JOptionPane.showInputDialog("Ingrese el número de documento del perfil a modificar"));
@@ -574,7 +575,7 @@ public class GestionarPerfil extends JFrame implements ActionListener, KeyListen
 					buscarPerfil = listaPerfi.BuscarPerfilNomUsuario(JOptionPane.showInputDialog("Ingrese el nombre de usuario del perfil a consultar"));
 					break;
 				case 2:
-					buscarPerfil = listaPerfi.BuscarPerfilContraIngreso(JOptionPane.showInputDialog("Ingrese la contraseña de ingreso del perfil a consultar"));
+					buscarPerfil = listaPerfi.BuscarPerfilCorreo(JOptionPane.showInputDialog("Ingrese la contraseña de ingreso del perfil a consultar"));
 					break;
 			}
 		}
